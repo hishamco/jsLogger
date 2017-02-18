@@ -40,27 +40,27 @@
 
             console.trace = function (message) {
                 log(logLevel.Trace, message);
-                trace.apply(console, arguments);
+                trace.call(this, arguments);
             };
 
             console.debug = function (message) {
                 log(logLevel.Debug, message);
-                debug.apply(console, arguments);
+                debug.call(this, arguments);
             };
 
             console.info = function (message) {
                 log(logLevel.Information, message);
-                info.apply(console, arguments);
+                info.call(this, arguments);
             };
 
             console.warn = function (message) {
                 log(logLevel.Warning, message);
-                warn.apply(console, arguments);
+                warn.call(this, arguments);
             };
             
             console.error = function (message) {
                 log(logLevel.Error, message);
-                error.apply(console, arguments);
+                error.call(this, arguments);
             };
         })();
     </script>

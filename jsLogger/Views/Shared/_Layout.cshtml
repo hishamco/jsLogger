@@ -18,6 +18,44 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
+    <script type="text/javascript">
+        function log(logLevel, message) {
+            $.post("log", { "logLevel": logLevel, "message": message });
+        };
+
+        (function () {
+            var trace = console.trace;
+            var debug = console.debug;
+            var info = console.info;
+            var warn = console.warn;
+            var error = console.error;
+
+            console.trace = function (message) {
+                log("trace", message);
+                trace.apply(console, arguments);
+            };
+
+            console.debug = function (message) {
+                log("debug", message);
+                debug.apply(console, arguments);
+            };
+
+            console.info = function (message) {
+                log("info", message);
+                info.apply(console, arguments);
+            };
+
+            console.warn = function (message) {
+                log("warn", message);
+                warn.apply(console, arguments);
+            };
+            
+            console.error = function (message) {
+                log("error", message);
+                error.apply(console, arguments);
+            };
+        })();
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">

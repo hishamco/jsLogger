@@ -17,23 +17,23 @@ namespace jsLogger.Controllers
         }
 
         [HttpPost]
-        public void Index(string logLevel, string message)
+        public void Index(int level, string message)
         {
-            switch (logLevel)
+            switch ((LogLevel)level)
             {
-                case "trace":
+                case LogLevel.Trace:
                     _logger.LogTrace(message);
                     break;
-                case "debug":
+                case LogLevel.Debug:
                     _logger.LogDebug(message);
                     break;
-                case "info":
+                case LogLevel.Information:
                     _logger.LogInformation(message);
                     break;
-                case "warn":
+                case LogLevel.Warning:
                     _logger.LogWarning(message);
                     break;
-                case "error":
+                case LogLevel.Error:
                     _logger.LogError(message);
                     break;
                 default:

@@ -19,6 +19,14 @@
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
     <script type="text/javascript">
+        var logLevel = {
+            Trace: 0,
+            Debug: 1,
+            Information: 2,
+            Warning: 3,
+            Error: 4
+        };
+
         function log(level, message) {
             $.post("log", { "level": level, "message": message });
         };
@@ -31,27 +39,27 @@
             var error = console.error;
 
             console.trace = function (message) {
-                log("trace", message);
+                log(logLevel.Trace, message);
                 trace.apply(console, arguments);
             };
 
             console.debug = function (message) {
-                log("debug", message);
+                log(logLevel.Debug, message);
                 debug.apply(console, arguments);
             };
 
             console.info = function (message) {
-                log("info", message);
+                log(logLevel.Information, message);
                 info.apply(console, arguments);
             };
 
             console.warn = function (message) {
-                log("warn", message);
+                log(logLevel.Warning, message);
                 warn.apply(console, arguments);
             };
             
             console.error = function (message) {
-                log("error", message);
+                log(logLevel.Error, message);
                 error.apply(console, arguments);
             };
         })();

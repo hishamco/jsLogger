@@ -19,8 +19,8 @@
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
     <script type="text/javascript">
-        function log(logLevel, message) {
-            $.post("log", { "logLevel": logLevel, "message": message });
+        function log(level, message) {
+            $.post("log", { "level": level, "message": message });
         };
 
         (function () {

@@ -2,7 +2,7 @@
 
 namespace jsLogger.Extensions
 {
-    public static class BuilderExtensions
+    public static class ApplicationBuilderExtensions
     {
         public static IApplicationBuilder UseJavaScriptLogging(this IApplicationBuilder app)
         {

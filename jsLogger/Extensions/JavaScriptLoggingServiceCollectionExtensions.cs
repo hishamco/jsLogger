@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace jsLogger
+namespace jsLogger.Extensions
 {
-    public static class jsLoggerServiceCollectionExtensions
+    public static class JavaScriptLoggingServiceCollectionExtensions
     {
         public static IServiceCollection AddJavaScriptLogging(this IServiceCollection services)
         {
@@ -15,7 +15,7 @@ namespace jsLogger
                 throw new ArgumentNullException(nameof(services));
             }
 
-            services.AddSingleton<jsLoggerSnippet>();
+            services.AddSingleton<JavaScriptLoggingSnippet>();
 
             return services;
         }

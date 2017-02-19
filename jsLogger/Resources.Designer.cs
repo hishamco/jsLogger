@@ -62,6 +62,15 @@ namespace jsLogger {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Test.
+        /// </summary>
+        internal static string GlobalExceptionHandlingScript {
+            get {
+                return ResourceManager.GetString("GlobalExceptionHandlingScript", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;script type=&quot;text/javascript&quot;&gt;
         ///    var logLevel = {
         ///    Trace: 0,

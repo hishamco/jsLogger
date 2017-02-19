@@ -165,4 +165,11 @@ function log(level, message) {
 })();
 &lt;/script&gt;</value>
   </data>
+  <data name="GlobalExceptionHandlingScript" xml:space="preserve">
+    <value>&lt;script type="text/javascript"&gt;
+window.onerror = function(message, location, lineNumber) {
+    console.error(message + ' Location: ' + location + ' Line Number ' + lineNumber);
+};
+&lt;/script&gt;</value>
+  </data>
 </root>

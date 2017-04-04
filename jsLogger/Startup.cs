@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing;
 using jsLogger.Extensions;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using jsLogger.TagHelpers;
 
 namespace jsLogger
 {
@@ -30,6 +32,8 @@ namespace jsLogger
             {
                 options.HandleGlobalExceptions = true;
             });
+
+            services.AddSingleton<ITagHelperComponent, JavaScriptLoggingTagHelperComponent>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
